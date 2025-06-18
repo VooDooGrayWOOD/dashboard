@@ -1,0 +1,118 @@
+@mixin boldBold32() {
+  font-size: 32px;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin semiboldSemibold24() {
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin semiboldSemibold16() {
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  line-height: 120%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin semiboldSemibold14() {
+  font-size: 14px;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  line-height: 120%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin semiboldSemibold20() {
+  font-size: 20px;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  line-height: 20px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin mediumMedium14() {
+  font-size: 14px;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin mediumMedium1624() {
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin mediumMedium16() {
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin regularRegular12() {
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 12px;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin regularRegular10() {
+  font-size: 10px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+@mixin regularRegular14() {
+  font-size: 14px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 120%;
+  text-decoration: none;
+  text-transform: none;
+}
+@mixin regularRegular16() {
+  font-size: 16px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 120%;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@mixin shadowIcon() {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+@mixin shadowModal() {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+@mixin shadowPanel() {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
