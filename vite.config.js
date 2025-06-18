@@ -24,12 +24,16 @@ export default defineConfig({
       '@/plugins': fileURLToPath(new URL('./src/plugins', import.meta.url)),
       '@/helpers': fileURLToPath(new URL('./src/helpers', import.meta.url)),
       '@/constant': fileURLToPath(new URL('./src/constant', import.meta.url)),
+      '@/layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/assets/scss/typography.scss" as *;`,
+        additionalData: `
+          @use "@/assets/scss/typography.scss" as *;
+          @use "@/assets/scss/window.scss" as *;
+        `,
         silenceDeprecations: ['legacy-js-api'],
       },
     },

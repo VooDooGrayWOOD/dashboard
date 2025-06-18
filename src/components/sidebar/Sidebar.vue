@@ -48,17 +48,16 @@ const expandIcon = () => {
 <style lang="scss">
 .n-layout-scroll-container {
   background-color: var(--background-color);
+  margin-left: 5px;
+}
 
-  .sidebar-content {
-    margin-left: 5px;
-  }
+.n-layout {
+  background-color: var(--background-color);
 }
 
 .n-layout-sider,
 .n-dropdown-menu {
-  background-color: var(--header-color);
-  border: 1px solid var(--sidebar-color);
-  border-radius: var(--radius1);
+  @include styleForWindow();
 }
 
 .n-layout-sider {

@@ -19,14 +19,19 @@ import { useRoute } from 'vue-router';
 import { Login } from '@/pages/auth';
 import { darkTheme } from 'naive-ui';
 import { Sidebar, Header } from '@/components';
-import { EllipsisVertical } from '@vicons/ionicons5';
 
 const route = useRoute();
 const breadcrumb = ref([]);
 watch(
-  () => route.name,
-  (newName) => {
-    breadcrumb.value = [{ label: newName || '', icon: EllipsisVertical }];
+  () => [route.name, route.meta.key],
+
+  ([name, key]) => {
+    breadcrumb.value = [
+      {
+        label: name || '',
+        key: key || '',
+      },
+    ];
   },
   { immediate: true }
 );

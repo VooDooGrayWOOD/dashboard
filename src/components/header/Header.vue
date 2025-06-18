@@ -27,7 +27,7 @@ defineProps({
   background-color: var(--header-color);
   border: 1px solid var(--sidebar-color);
   border-radius: var(--radius1);
-  margin-bottom: 5px;
+  margin: 5px;
 
   .breadcrumbs {
     display: grid;

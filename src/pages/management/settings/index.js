@@ -1,1 +1,1 @@
-export { default as Settings } from './Settings.vue';
+export { default as ManagementSettings } from './Settings.vue';
