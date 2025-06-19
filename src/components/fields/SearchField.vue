@@ -1,18 +1,30 @@
 <template>
-  <n-space>
-    <n-input type="search" :placeholder="placeholder" />
+  <n-space vertical>
+    <n-input
+      type="text"
+      :placeholder="$t(`${placeholder}`)"
+      class="search-field"
+    >
+      <template #suffix><n-icon :size="16" :component="Search" /></template
+    ></n-input>
   </n-space>
 </template>
 
 <script setup>
-import { translate } from '@/helpers';
-
+import { Search } from '@vicons/carbon';
 defineProps({
   placeholder: {
     type: String,
-    default: translate('search'),
+    default: 'search',
   },
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search-field {
+  border-radius: var(--radius1);
+  :deep(.n-input__placeholder) {
+    top: -2px !important;
+  }
+}
+</style>

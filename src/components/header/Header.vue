@@ -1,8 +1,8 @@
 <template>
   <div className="header-wrapper">
-    <UserProfileDropdownMenu />
-    <div class="breadcrumbs"><Breadcrumb :items="breadcrumb" /></div>
-    <div class="language-switcher"><LanguageSwitcher /></div>
+    <user-profile-dropdown-menu />
+    <div class="breadcrumbs"><breadcrumb :items="breadcrumb" /></div>
+    <div class="language-switcher"><language-switcher /></div>
   </div>
 </template>
 

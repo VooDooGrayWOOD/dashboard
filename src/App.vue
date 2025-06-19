@@ -4,10 +4,10 @@
       <!-- TODO добавить проверку на есть ли у юзера токен -->
       <template v-if="route.name">
         <Header :breadcrumb="breadcrumb" />
-        <Sidebar />
+        <sidebar />
       </template>
       <template v-else>
-        <Login />
+        <login />
       </template>
     </n-message-provider>
   </n-config-provider>

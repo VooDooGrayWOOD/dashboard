@@ -1,10 +1,11 @@
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 export function useNavigation() {
-  const collapsed = ref(false);
+  const collapsed = ref(true);
   const activeKey = ref(null);
   const router = useRouter();
+  const route = useRoute();
 
   const navigate = (key) => {
     if (key) {
@@ -12,6 +13,12 @@ export function useNavigation() {
       router.push(key);
     }
   };
+
+  const setActiveKeyFromRoute = () => {
+    activeKey.value = route.path;
+  };
+
+  setActiveKeyFromRoute();
 
   return {
     collapsed,

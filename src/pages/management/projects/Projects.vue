@@ -1,8 +1,8 @@
 <template>
   <Page>
     <Page.Toolbar>
-      <Toolbar.CreateBtn @click="createTask" text="management.create" />
-      <Toolbar.Search />
+      <Toolbar.CreateBtn @click="createTask" text="management.newProject" />
+      <Toolbar.Search placeholder="searchByName" />
     </Page.Toolbar>
 
     <!-- <Page.Content> -->

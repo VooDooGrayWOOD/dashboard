@@ -39,6 +39,10 @@
   --blue: rgba(0, 118, 255, 1);
   --orange: rgba(250, 129, 42, 1);
   --radius1: 8px;
+
+  .n-popover {
+    --n-color: var(--header-color) !important;
+  }
 }
 
 /* a {

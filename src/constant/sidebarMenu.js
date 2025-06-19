@@ -2,13 +2,7 @@ import { translate } from '@/helpers';
 import { NIcon } from 'naive-ui';
 import { h, computed } from 'vue';
 import { FundProjectionScreenOutlined } from '@vicons/antd';
-import {
-  InventoryManagement,
-  Task,
-  Industry,
-  ToolKit,
-  Building,
-} from '@vicons/carbon';
+import { Task, ToolKit, Building } from '@vicons/carbon';
 import { SettingsOutline } from '@vicons/ionicons5';
 
 export const renderIcon = (icon) => {
@@ -19,7 +13,6 @@ export const sidebarMenuOptions = computed(() => [
   {
     label: translate('management.title'),
     key: '/management',
-    icon: renderIcon(InventoryManagement),
     children: [
       {
         label: translate('management.projects'),
@@ -41,7 +34,6 @@ export const sidebarMenuOptions = computed(() => [
   {
     label: translate('manufacture.title'),
     key: '/manufacture',
-    icon: renderIcon(Industry),
     children: [
       {
         label: translate('equipment.title'),
