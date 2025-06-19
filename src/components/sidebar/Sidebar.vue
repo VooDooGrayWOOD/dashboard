@@ -4,28 +4,28 @@
       <n-layout-sider
         bordered
         collapse-mode="width"
-        :collapsed-width="84"
-        :width="240"
+        :collapsed-width="collapsedWidth"
+        :width="sidebarWidth"
         :collapsed="collapsed"
         show-trigger
-        @collapse="handleCollapse"
-        @expand="collapsed = false"
+        @collapse="handleCollapse(true)"
+        @expand="handleCollapse(false)"
       >
         <n-menu
-          v-if="!collapsed"
           :options="sidebarMenuOptions"
           :expand-icon="expandIcon"
           v-model:value="activeKey"
           @update:value="navigate"
+          v-show="!collapsed"
         />
 
         <n-menu
-          v-else
           :options="collapsedMenuOptions"
-          :collapsed-width="84"
+          :collapsed-width="collapsedWidth"
           :collapsed-icon-size="22"
           v-model:value="activeKey"
           @update:value="navigate"
+          v-show="collapsed"
         />
       </n-layout-sider>
 
@@ -46,8 +46,11 @@ import { useNavigation } from '@/composables/useNavigation';
 
 const { collapsed, activeKey, navigate } = useNavigation();
 
-const collapsedMenuOptions = computed(() => {
-  return sidebarMenuOptions.value.flatMap((group) => [
+const sidebarWidth = 240;
+const collapsedWidth = 84;
+
+const collapsedMenuOptions = computed(() =>
+  sidebarMenuOptions.value.flatMap((group) => [
     {
       key: group.key,
       label: () => h('div', { class: 'collapsed-parent-label' }, group.label),
@@ -58,23 +61,33 @@ const collapsedMenuOptions = computed(() => {
       icon: child.icon,
       label: child.label,
     })) || []),
-  ]);
-});
+  ])
+);
 
-const handleCollapse = () => {
-  collapsed.value = true;
-  activeKey.value = activeKey.value;
+const handleCollapse = (state) => {
+  collapsed.value = state;
 };
 
-const expandIcon = () => {
-  return h(NIcon, null, { default: () => h(CaretDownOutline) });
-};
+const expandIcon = () => h(NIcon, null, () => h(CaretDownOutline));
 </script>
 
 <style lang="scss">
+:root {
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 84px;
+  --layout-margin: 5px;
+}
+
 .n-layout-sider {
   height: 100vh;
   transition: width 0.3s ease;
+
+  .n-layout-toggle-button {
+    border: 1px solid var(--sidebar-color);
+    background-color: var(--header-color);
+  }
+
+  @include styleForWindow();
 
   .n-menu {
     &--collapsed {
@@ -97,47 +110,51 @@ const expandIcon = () => {
       .n-menu-item-content-header:not(:has(.collapsed-parent-label)) {
         opacity: 0 !important;
       }
+
       .n-menu-item-content {
         justify-content: center;
 
         &--disabled {
           cursor: default;
         }
+
+        &:has(.collapsed-parent-label) {
+          padding: 0 !important;
+        }
+      }
+    }
+
+    &:not(.n-menu--collapsed) {
+      .n-submenu .n-menu-item .n-menu-item-content-header {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        opacity: 0.4;
       }
 
-      .n-menu-item-content:has(.collapsed-parent-label) {
-        padding: 0 !important;
+      .n-submenu .n-submenu-children .n-menu-item-content-header {
+        text-transform: none;
+        font-weight: 400;
+        opacity: 1;
       }
+    }
+
+    .n-submenu-children .n-menu-item-content {
+      padding-left: 24px !important;
     }
   }
 }
 
-.n-layout-toggle-button {
-  border: 1px solid var(--sidebar-color);
-  background-color: var(--header-color);
-}
-
-.n-layout-scroll-container {
+.n-layout-scroll-container,
+.n-layout {
   background-color: var(--background-color);
-  margin-left: 5px;
 }
 
 .n-layout {
-  background-color: var(--background-color);
-  margin-right: 5px;
+  margin-right: var(--layout-margin);
 }
 
-.n-layout-sider,
-.n-dropdown-menu {
-  @include styleForWindow();
-}
-
-.n-layout-sider {
-  height: 100vh;
-
-  .n-layout-toggle-button {
-    border: 1px solid var(--sidebar-color);
-    background-color: var(--header-color);
-  }
+.n-layout-scroll-container {
+  margin-left: var(--layout-margin);
 }
 </style>
