@@ -8,11 +8,11 @@
   >
     <n-space class="profile-dropdown-menu">
       <n-avatar
-        round
         size="small"
         src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+        round
       />
-      <span cla>Admin Adminov</span>
+      <span>Admin Adminov</span>
     </n-space>
   </n-dropdown>
 </template>

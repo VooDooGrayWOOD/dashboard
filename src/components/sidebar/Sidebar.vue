@@ -29,8 +29,10 @@
         />
       </n-layout-sider>
 
-      <n-layout>
-        <div class="sidebar-content"><router-view /></div>
+      <n-layout class="content-wrapper">
+        <n-scrollbar class="content-scrollbar">
+          <div class="sidebar-content"><router-view /></div>
+        </n-scrollbar>
       </n-layout>
     </n-layout>
   </n-space>
@@ -79,7 +81,7 @@ const expandIcon = () => h(NIcon, null, () => h(CaretDownOutline));
 }
 
 .n-layout-sider {
-  height: 100vh;
+  height: calc(100vh - 66px);
   transition: width 0.3s ease;
 
   .n-layout-toggle-button {
@@ -90,6 +92,23 @@ const expandIcon = () => h(NIcon, null, () => h(CaretDownOutline));
   @include styleForWindow();
 
   .n-menu {
+    height: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      visibility: hidden;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+
     &--collapsed {
       .n-menu-item-content-header:has(.collapsed-parent-label) {
         opacity: 1 !important;
@@ -156,5 +175,38 @@ const expandIcon = () => h(NIcon, null, () => h(CaretDownOutline));
 
 .n-layout-scroll-container {
   margin-left: var(--layout-margin);
+}
+
+.content-wrapper {
+  height: calc(100vh - 66px);
+  overflow-y: auto;
+
+  .scroll-container {
+    height: 100vh;
+    overflow-y: auto;
+    padding-right: 8px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      visibility: hidden;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+
+  .sidebar-content {
+    min-height: 100%;
+  }
 }
 </style>

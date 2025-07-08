@@ -95,6 +95,7 @@ const handleValidateButtonClick = (e) => {
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100vh;
+  width: 100%;
   padding: 20px;
 
   .language-switcher {

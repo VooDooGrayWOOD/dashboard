@@ -4,6 +4,7 @@
       type="text"
       :placeholder="$t(`${placeholder}`)"
       class="search-field"
+      clearable
     >
       <template #suffix><n-icon :size="16" :component="Search" /></template
     ></n-input>

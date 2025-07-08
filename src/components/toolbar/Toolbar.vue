@@ -17,6 +17,7 @@ defineProps({
 .composite-toolbar {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 8px;
   padding: 8px 12px;
 }

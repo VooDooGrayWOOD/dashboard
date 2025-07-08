@@ -1,10 +1,12 @@
 <template>
-  <n-config-provider :theme="darkTheme">
+  <n-config-provider :theme="darkTheme" class="app-wrapper">
     <n-message-provider>
       <!-- TODO добавить проверку на есть ли у юзера токен -->
       <template v-if="route.name">
-        <Header :breadcrumb="breadcrumb" />
-        <sidebar />
+        <div class="header-sidebar">
+          <Header :breadcrumb="breadcrumb" />
+          <sidebar />
+        </div>
       </template>
       <template v-else>
         <login />
@@ -22,6 +24,7 @@ import { Sidebar, Header } from '@/components';
 
 const route = useRoute();
 const breadcrumb = ref([]);
+
 watch(
   () => [route.name, route.meta.key],
 
@@ -37,4 +40,14 @@ watch(
 );
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.app-wrapper {
+  position: absolute;
+
+  .header-sidebar {
+    width: 100vw !important;
+    display: grid;
+    position: fixed;
+  }
+}
+</style>

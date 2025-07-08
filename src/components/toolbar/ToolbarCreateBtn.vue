@@ -30,7 +30,8 @@ const attrs = useAttrs();
 const router = useRouter();
 
 const create = () => {
-  router.push(props.url);
+  // router.push(props.url);
+  console.log('🚀 ~ create ~');
 };
 </script>
 
